@@ -6,5 +6,10 @@ require 'sinatra'
 
 get '/' do
   @crm_app_name = "Bitmaker's CRM"
+  @current_time = Time.now
   erb :index
+end
+
+get '/contacts' do
+
 end
