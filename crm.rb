@@ -20,3 +20,8 @@ get '/contacts' do
   erb :contacts
 
 end
+
+get '/contacts/new' do
+
+
+end
