@@ -9,7 +9,7 @@
     <ul class="contacts_list">
       <% Contact.all.each do |contact|%>
       <li class = "contact">
-        <%= contact.first_name%> <%= contact.last_name%>
+        <%= contact.first_name%> <%= contact.last_name%> <%= "(#{contact.email})"%>
         <nav>
           <ul class = "edit_delete">
             <li> <a href="#"> Edit  </a> </li>
