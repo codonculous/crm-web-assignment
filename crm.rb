@@ -17,6 +17,7 @@ end
 
 get '/contacts' do
 
+  @contacts_num = Contact.all.length
   erb :contacts
 
 end
