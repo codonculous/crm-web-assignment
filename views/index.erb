@@ -1,9 +1,25 @@
+<div class = "contact_main">
 
+  <% if @contacts_num == 0 %>
+        <h1 class = "contacts_num"> There is no contact </h1>
+  <% else%>
+        <h1 class = "contacts_num">There are <%= @contacts_num %> contacts</h1>
+  <% end%>
 
+  <ul class="contacts_list">
+    <% Contact.all.each do |contact|%>
+    <li class = "contact">
+      <%= contact.first_name%> <%= contact.last_name%> <%= "(#{contact.email})"%>
+      <nav>
+        <ul class = "edit_delete">
+          <li> <a href="/contacts/<%=contact.id%>/edit"> Edit  </a> </li>
+                          |
+          <li> <a href="/contacts/<%=contact.id%>/delete"> Delete </a> </li>
+        </ul>
+      </nav>
+    </li>
 
-    <ul>
-      <li><a href="/contacts">View all contacts</a></li>
-      <li><a href="/contacts/new">Add new contacts</a></li>
-      <strong> Current Time : <%= @current_time %></strong>
-      <!-- please complete me with links to other actions -->
-    </ul>
+    <%end%>
+  </ul>
+
+</div>
