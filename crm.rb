@@ -40,15 +40,7 @@ get '/contacts/:id/edit' do
   end
 end
 
-delete '/contacts/:id' do
-  @contact = Contact.find(params[:id].to_i)
-  if @contact
-    @contact.delete
-    redirect to('/')
-  else
-    raise Sinatra::NotFound
-  end
-end
+
 
 post '/' do
 
@@ -56,13 +48,23 @@ post '/' do
   redirect to('/')
 end
 
-put '/contacts/:id' do
+put '/' do
   @contact = Contact.find(params[:id].to_i)
   if @contact
     @contact.first_name = params[:first_name]
     @contact.last_name = params[:last_name]
     @contact.email = params[:email]
     @contact.note = params[:note]
+    redirect to('/')
+  else
+    raise Sinatra::NotFound
+  end
+end
+
+delete '/' do
+  @contact = Contact.find(params[:id].to_i)
+  if @contact
+    @contact.delete
     redirect to('/')
   else
     raise Sinatra::NotFound
